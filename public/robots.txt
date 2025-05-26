@@ -1,0 +1,5 @@
+# https://www.robotstxt.org/robotstxt.html
+# Allow all crawlers
+User-agent: *
+Allow: /
+Sitemap: https://opdrape.store/sitemap.xml

@@ -1,0 +1,303 @@
+/* Import color variables */
+:root {
+  --black: #000000;
+  --off-black: #333333;
+  --dark-gray: #555555;
+  --mid-gray: #888888;
+  --light-gray: #cccccc;
+  --off-white: #f8f8f8;
+  --white: #ffffff;
+}
+
+/* Order Summary Container */
+.order-summary {
+  background-color: white;
+  border-radius: var(--radius-md, 12px);
+  box-shadow: var(--shadow-sm, 0 2px 8px rgba(0, 0, 0, 0.08));
+  padding: 24px;
+  width: 400px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Summary Title */
+.summary-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary, #333);
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border-color, #eee);
+}
+
+/* Summary Items List */
+.summary-items {
+  flex: 1;
+  overflow-y: auto;
+  max-height: 300px;
+  padding-right: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Scrollbar Styles */
+.summary-items::-webkit-scrollbar {
+  width: 6px;
+}
+
+.summary-items::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.summary-items::-webkit-scrollbar-thumb {
+  background: #ddd;
+  border-radius: 3px;
+}
+
+/* Summary Item Row */
+.summary-item-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border-color, #f5f5f5);
+}
+
+.summary-item-row:last-child {
+  border-bottom: none;
+}
+
+/* Item Info */
+.item-info {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  min-width: 0;
+}
+
+.item-quantity {
+  font-weight: 500;
+  color: var(--text-secondary, #666);
+  white-space: nowrap;
+}
+
+.item-name {
+  flex: 1;
+  color: var(--text-primary, #333);
+  font-weight: 500;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.item-variant {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--text-secondary, #666);
+  margin-top: 4px;
+}
+
+.item-price {
+  font-weight: 600;
+  color: var(--text-primary, #333);
+  white-space: nowrap;
+}
+
+/* Summary Totals */
+.summary-totals {
+  border-top: 2px solid var(--border-color, #eee);
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text-secondary, #666);
+}
+
+.summary-row span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.summary-row.total {
+  margin-top: 4px;
+  padding-top: 16px;
+  border-top: 2px solid var(--border-color, #eee);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary, #333);
+}
+
+.summary-row.discount {
+  color: var(--success-color, #2e7d32);
+}
+
+.summary-icon {
+  font-size: 0.875rem;
+  color: var(--text-secondary, #999);
+}
+
+/* Summary Note */
+.summary-note {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-color, #eee);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-secondary, #666);
+  font-size: 0.875rem;
+}
+
+.summary-note svg {
+  color: var(--text-secondary, #666);
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .order-summary {
+    width: 100%;
+    max-width: none;
+    order: 2; /* Show after main content on tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .order-summary {
+    margin-top: 1.5rem;
+    padding: 1.25rem;
+    border-radius: 10px;
+  }
+  
+  .summary-title {
+    font-size: 1.125rem;
+    padding-bottom: 0.75rem;
+  }
+  
+  .summary-items {
+    max-height: 250px;
+    gap: 0.75rem;
+  }
+  
+  .summary-item-row {
+    padding: 0.75rem 0;
+    gap: 0.75rem;
+  }
+  
+  .item-info {
+    gap: 0.625rem;
+  }
+  
+  .item-quantity {
+    font-size: 0.875rem;
+  }
+  
+  .item-name {
+    font-size: 0.875rem;
+    line-height: 1.3;
+  }
+  
+  .item-variant {
+    font-size: 0.75rem;
+  }
+  
+  .item-price {
+    font-size: 0.9375rem;
+  }
+  
+  .summary-totals {
+    padding-top: 1rem;
+    gap: 0.75rem;
+  }
+  
+  .summary-row {
+    font-size: 0.875rem;
+  }
+  
+  .summary-row.total {
+    font-size: 1.0625rem;
+    padding-top: 0.75rem;
+  }
+  
+  .summary-note {
+    font-size: 0.8125rem;
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .order-summary {
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 8px;
+  }
+  
+  .summary-title {
+    font-size: 1rem;
+    padding-bottom: 0.625rem;
+  }
+  
+  .summary-items {
+    max-height: 200px;
+    gap: 0.625rem;
+  }
+  
+  .summary-item-row {
+    padding: 0.625rem 0;
+    gap: 0.5rem;
+  }
+  
+  .item-quantity {
+    font-size: 0.8125rem;
+  }
+  
+  .item-name {
+    font-size: 0.8125rem;
+  }
+  
+  .item-variant {
+    font-size: 0.6875rem;
+  }
+  
+  .item-price {
+    font-size: 0.875rem;
+  }
+  
+  .summary-totals {
+    padding-top: 0.875rem;
+    gap: 0.625rem;
+  }
+  
+  .summary-row {
+    font-size: 0.8125rem;
+  }
+  
+  .summary-row.total {
+    font-size: 1rem;
+    padding-top: 0.625rem;
+  }
+  
+  .summary-icon {
+    font-size: 0.75rem;
+  }
+  
+  .summary-note {
+    font-size: 0.75rem;
+    margin-top: 0.625rem;
+    padding-top: 0.625rem;
+    gap: 0.5rem;
+  }
+}
+
+/* Dark mode not needed as we already have a colorful theme */ 

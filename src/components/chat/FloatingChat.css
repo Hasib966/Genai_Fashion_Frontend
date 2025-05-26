@@ -1,0 +1,145 @@
+/* FloatingChat.css - Main floating chat widget styles */
+
+.floating-chat {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+/* Chat Toggle Button */
+.chat-toggle-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+  background: #7c3aed;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(124, 58, 237, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.chat-toggle-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 24px rgba(124, 58, 237, 0.4);
+  background: #6d28d9;
+}
+
+.chat-toggle-btn:active {
+  transform: translateY(0) scale(0.95);
+}
+
+.chat-toggle-btn.active {
+  background: #6d28d9;
+  box-shadow: 0 4px 16px rgba(109, 40, 217, 0.3);
+}
+
+.chat-toggle-btn.active:hover {
+  background: #5b21b6;
+  box-shadow: 0 6px 24px rgba(109, 40, 217, 0.4);
+}
+
+/* Pulse animation for new messages */
+.chat-toggle-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: inherit;
+  opacity: 0.3;
+  transform: translate(-50%, -50%) scale(0);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.4);
+    opacity: 0;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .floating-chat {
+    bottom: 15px;
+    right: 15px;
+  }
+  
+  .chat-toggle-btn {
+    width: 55px;
+    height: 55px;
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .floating-chat {
+    bottom: 10px;
+    right: 10px;
+  }
+  
+  .chat-toggle-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+}
+
+/* Animation for chat window appearance */
+.chat-window {
+  animation: slideUpFadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideUpFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Focus styles for accessibility */
+.chat-toggle-btn:focus {
+  outline: 2px solid #7c3aed;
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .chat-toggle-btn {
+    border: 2px solid currentColor;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .chat-toggle-btn {
+    transition: none;
+  }
+  
+  .chat-toggle-btn::before {
+    animation: none;
+  }
+  
+  .chat-window {
+    animation: none;
+  }
+}

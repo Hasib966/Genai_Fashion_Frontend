@@ -1,0 +1,329 @@
+/* Message.css - Individual message styles */
+
+.message {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 2px;
+  animation: messageSlideIn 0.25s ease-out;
+}
+
+@keyframes messageSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Message Avatar */
+.message-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* User Message */
+.user-message {
+  flex-direction: row-reverse;
+}
+
+.user-message .message-avatar {
+  background: #e5e7eb;
+  color: #6b7280;
+}
+
+.user-message .message-content {
+  align-items: flex-end;
+}
+
+.user-message .message-bubble {
+  background: #f3f4f6;
+  color: #1f2937;
+  border-bottom-right-radius: 4px;
+}
+
+/* AI Message */
+.ai-message .message-avatar {
+  background: #7c3aed;
+  color: white;
+}
+
+.ai-message .message-content {
+  align-items: flex-start;
+}
+
+.ai-message .message-bubble {
+  background: #f3f4f6;
+  color: #1f2937;
+  border-bottom-left-radius: 4px;
+}
+
+/* Message Content */
+.message-content {
+  display: flex;
+  flex-direction: column;
+  max-width: 70%;
+  gap: 4px;
+}
+
+/* Message bubble with products should be wider */
+.message-content:has(.chat-product-cards-container) {
+  max-width: 85%;
+}
+
+/* Message Bubble */
+.message-bubble {
+  padding: 10px 14px;
+  border-radius: 16px;
+  position: relative;
+  word-wrap: break-word;
+  line-height: 1.5;
+  box-shadow: none;
+}
+
+.message-text {
+  font-size: 14px;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Formatted message content */
+.message-paragraph {
+  margin-bottom: 8px;
+}
+
+.message-paragraph:last-child {
+  margin-bottom: 0;
+}
+
+.message-heading {
+  font-weight: 600;
+  font-size: 15px;
+  color: inherit;
+  margin-bottom: 6px;
+  margin-top: 4px;
+}
+
+.message-heading:first-child {
+  margin-top: 0;
+}
+
+.message-list-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 4px;
+  gap: 8px;
+}
+
+.message-list-item:last-child {
+  margin-bottom: 0;
+}
+
+.list-bullet {
+  color: #7c3aed;
+  font-weight: 600;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.list-number {
+  color: #7c3aed;
+  font-weight: 600;
+  flex-shrink: 0;
+  margin-top: 2px;
+  min-width: 20px;
+}
+
+.message-list-item.numbered {
+  margin-left: 4px;
+}
+
+/* Product list formatting */
+.message-product-list {
+  margin: 8px 0;
+}
+
+.product-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  margin: 6px 0;
+  background: rgba(124, 58, 237, 0.08);
+  border-radius: 8px;
+  border-left: 3px solid #7c3aed;
+}
+
+.product-name {
+  font-weight: 500;
+  color: inherit;
+}
+
+.product-price {
+  font-weight: 600;
+  color: #7c3aed;
+  font-size: 13px;
+}
+
+/* List container */
+.message-list-container {
+  margin: 8px 0;
+}
+
+.message-list-header {
+  font-weight: 600;
+  font-size: 15px;
+  color: inherit;
+  margin-bottom: 8px;
+  margin-top: 4px;
+}
+
+.message-list-header:first-child {
+  margin-top: 0;
+}
+
+.message-list-text {
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+
+/* Enhanced text formatting */
+.message-paragraph strong,
+.message-list-item strong {
+  font-weight: 600;
+  color: inherit;
+}
+
+.message-paragraph em,
+.message-list-item em {
+  font-style: italic;
+  opacity: 0.9;
+}
+
+/* Link styling */
+.message-paragraph a,
+.message-list-item a,
+.message-heading a {
+  color: #7c3aed;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.message-paragraph a:hover,
+.message-list-item a:hover,
+.message-heading a:hover {
+  color: #6d28d9;
+  text-decoration: none;
+}
+
+/* Message Time */
+.message-time {
+  font-size: 11px;
+  color: #9ca3af;
+  padding: 0 2px;
+  margin-top: 2px;
+  font-weight: 400;
+}
+
+/* Data usage indicator */
+.data-usage-indicator {
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ai-message .data-usage-indicator {
+  border-top-color: rgba(0, 0, 0, 0.05);
+}
+
+.data-usage-indicator small {
+  color: #64748b;
+  font-size: 10px;
+  opacity: 0.8;
+}
+
+.user-message .data-usage-indicator small {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Link styling within messages */
+.message-bubble a {
+  color: inherit;
+  text-decoration: underline;
+  opacity: 0.9;
+}
+
+.message-bubble a:hover {
+  opacity: 1;
+}
+
+/* Code blocks in messages */
+.message-bubble code {
+  background: rgba(0, 0, 0, 0.1);
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 12px;
+}
+
+.user-message .message-bubble code {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .message-content {
+    max-width: 80%;
+  }
+  
+  .message-avatar {
+    width: 28px;
+    height: 28px;
+    font-size: 13px;
+  }
+  
+  .message-bubble {
+    padding: 9px 12px;
+    border-radius: 14px;
+  }
+  
+  .message-text {
+    font-size: 13px;
+  }
+  
+  .message-time {
+    font-size: 10px;
+  }
+  
+  .product-item {
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .message {
+    animation: none;
+  }
+}
+
+/* Print styles */
+@media print {
+  .message {
+    break-inside: avoid;
+  }
+  
+  .message-avatar {
+    display: none;
+  }
+}
